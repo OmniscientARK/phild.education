@@ -7,9 +7,16 @@
 <script>
 export default {
   name: 'App',
+  created() {
+    window.addEventListener('beforeunload', this.onUnload)
+  },
+  methods: {
+    onUnload(){
+      this.$cookies.set("last", this.$router.history.current.name)
+    }
+  }
 }
 </script>
-
 <style>
 @font-face {
   font-family: "PhildSans";

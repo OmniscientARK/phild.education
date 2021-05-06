@@ -3,7 +3,7 @@
       <table>
         <tr style="font-size: 200px; line-height: 120px">404</tr>
         <tr style="font-size: 36px; line-height: 80px">Página não encontrada!</tr>
-        <tr><div id="return" @click="goBack">Retornar</div></tr>
+        <tr><router-link :to="r" id="return">Retornar</router-link></tr>
       </table>
   </div>
 </template>
@@ -11,9 +11,9 @@
 <script>
 export default {
   name: "Error404",
-  methods: {
-    goBack(){
-      window.history.back()
+  data(){
+    return{
+      r: {name: this.$cookies.get("last")}
     }
   }
 }
@@ -42,6 +42,8 @@ table tr{
   display: inline-block;
   line-height: 30px;
   margin-top: 60px;
+  text-decoration: none;
+  color: #32353e;
 }
 
 #return:hover{
