@@ -12,7 +12,10 @@ export default {
   },
   methods: {
     onUnload(){
-      this.$cookies.set("last", this.$router.history.current.name)
+      let page = this.$router.history.current.name
+      if(page !== "NotFound") {
+        this.$cookies.set("last", page)
+      }
     }
   }
 }
