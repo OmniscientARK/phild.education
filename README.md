@@ -1,4 +1,4 @@
-#Phild Education: uma plataforma para a educação
+# Phild Education: uma plataforma para a educação
 ## Objetivos
 Phild Education é uma plataforma cuja premissa é similar ao Google Classroom, mas com objetivos mais ambiciosos:
 - [ ] Construção de uma interface de sala de aula, onde é possível interagir com alunos, publicar materiais e marcar atividades.
