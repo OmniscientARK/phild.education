@@ -1,17 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueCookies from 'vue-cookies';
-import wwwRouter from './router/index.js'
+import www from './router/www.js'
+import news from './router/news.js'
+import NotFound from "@/pages/other/NotFound";
 
 Vue.config.productionTip = false
 Vue.use(VueCookies)
 
 const subdomains = {
-  "www": wwwRouter,
-  "classroom": wwwRouter,
-  // "news": newsRouter,
-  // "mail": mailRouter,
-  // "drive": driveRouter,
+  "www": www,
+  //"classroom": classroomRouter,
+  "news": news,
+  //"mail": mailRouter,
+  //"drive": driveRouter,
+  //Future subdomains: chemistry, canvas, coding
 }
 
 const router = () => {
@@ -24,7 +27,19 @@ const router = () => {
     subdomain = "www"
   }
   if(subdomain in subdomains){
-    return subdomains[subdomain]
+    let r = subdomains[subdomain]
+    r.addRoute({
+      path: '/*',
+      name: 'NotFound',
+      component: NotFound,
+      beforeEnter: (to, from, next) => {
+        if (Vue.$cookies.get("last") === "NotFound") {
+          Vue.$cookies.set("last", "Home")
+        }
+        next()
+      }
+    })
+    return r
   }else{
     window.location.href = window.location.href.replace(subdomain+".", "");
   }
