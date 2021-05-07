@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from "@/pages/home/Home";
+import Home from "@/pages/www/Home";
 import ClassroomHome from "@/pages/classroom/ClassroomHome";
 import NotFound from "@/pages/other/NotFound";
 
