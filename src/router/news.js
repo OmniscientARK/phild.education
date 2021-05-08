@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from "@/pages/www/Home";
+import NewsHome from "@/pages/news/NewsHome";
 
 Vue.use(Router)
 
@@ -11,19 +11,19 @@ export default new Router({
             path: '/',
             props: true,
             name: 'Home',
-            component: Home
+            component: NewsHome
         },
         {
             path: '/s',
             props: true,
             name: 'Sources',
-            component: Home
+            //component: Home
         },
         {
             path: '/s/:id',
             props: true,
             name: 'SourceMenu',
-            component: Home
+            //component: Home
         }
     ]
 })

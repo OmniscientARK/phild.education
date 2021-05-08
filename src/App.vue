@@ -9,12 +9,24 @@ export default {
   name: 'App',
   created() {
     window.addEventListener('beforeunload', this.onUnload)
+    window.addEventListener('scroll', this.onScroll)
   },
   methods: {
     onUnload(){
       let page = this.$router.history.current.name
       if(page !== "NotFound") {
         this.$cookies.set("last", page)
+      }
+    },
+    onScroll(){
+      const el = document.getElementById("scroll-top")
+      const navbar = document.getElementById("navbar")
+      if (document.body.scrollTop > navbar.offsetHeight || document.documentElement.scrollTop > navbar.offsetHeight) {
+        el.style.display = "flex";
+        el.style.visibility = "visible"
+      } else {
+        el.style.display = "none";
+        el.style.visibility = "hidden"
       }
     }
   }
@@ -29,8 +41,6 @@ export default {
 
 html,body {
   margin: 0;
-  width: 100vw;
-  height: 100vh;
   background: whitesmoke;
 }
 
@@ -40,7 +50,21 @@ html,body {
   -moz-osx-font-smoothing: grayscale;
   color: #32353e;
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.selection{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>

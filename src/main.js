@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueCookies from 'vue-cookies';
 import www from './router/www.js'
 import news from './router/news.js'
+import accounts from "@/router/accounts";
 import NotFound from "@/pages/other/NotFound";
 
 Vue.config.productionTip = false
@@ -10,8 +11,9 @@ Vue.use(VueCookies)
 
 const subdomains = {
   "www": www,
-  //"classroom": classroomRouter,
+  "accounts": accounts,
   "news": news,
+  //"classroom": classroomRouter,
   //"mail": mailRouter,
   //"drive": driveRouter,
   //Future subdomains: chemistry, canvas, coding
