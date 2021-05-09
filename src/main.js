@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from '@/App.vue'
 import VueCookies from 'vue-cookies';
-import www from './router/www.js'
-import news from './router/news.js'
+import www from '@/router/www.js'
+import news from '@/router/news.js'
 import accounts from "@/router/accounts";
 import NotFound from "@/pages/other/NotFound";
 

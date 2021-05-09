@@ -17,7 +17,7 @@ export default new Router({
             path: '/s',
             props: true,
             name: 'Sources',
-            //component: Home
+            // component: Home
         },
         {
             path: '/s/:id',
