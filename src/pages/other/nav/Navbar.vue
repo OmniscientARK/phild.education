@@ -1,8 +1,7 @@
 <template>
   <div id="navbar" class="selection">
     <div id="logo">
-      <span style="color: #32353e; font-weight: 600;">Phild</span>
-      <Separator size="3px"/>
+      <span style="color: #32353e; font-weight: 600; margin-right: 3px">Phild</span>
       <span style="color: ghostwhite">{{application}}</span>
     </div>
     <div id="elements">
@@ -15,15 +14,10 @@
 </template>
 
 <script>
-import Separator from "@/pages/other/Separator";
-
 export default {
   name: "Navbar",
   props: {
     application: String
-  },
-  components: {
-    Separator
   }
 }
 </script>
