@@ -13,13 +13,13 @@
 export default {
   name: "SearchBar",
   props: {
-    width: String,
-    height: String
+    width: {type: String, default: "60%"},
+    height: {type: String, default: "40px"}
   },
   data(){
     return{
       barStyle: {width: this.width, height: this.height},
-      query: ""
+      query: "",
     }
   }
 }

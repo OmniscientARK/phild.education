@@ -1,7 +1,7 @@
 <template>
   <div id="news">
     <GoTop/>
-    <Navbar application="News">
+    <Navbar app="News">
       <SearchBar width="60%" height="40px" @search="search"/>
     </Navbar>
     <Linkbar>

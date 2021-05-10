@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import App from '@/App.vue'
 import VueCookies from 'vue-cookies';
+import axios from "axios";
 import www from '@/router/www.js'
 import news from '@/router/news.js'
 import accounts from "@/router/accounts";
 import NotFound from "@/pages/other/NotFound";
 
 Vue.config.productionTip = false
+
 Vue.use(VueCookies)
+Vue.use(axios)
 
 const subdomains = {
   "www": www,

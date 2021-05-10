@@ -2,7 +2,7 @@
   <div id="navbar" class="selection">
     <div id="logo">
       <span style="color: #32353e; font-weight: 600; margin-right: 3px">Phild</span>
-      <span style="color: ghostwhite">{{application}}</span>
+      <span style="color: ghostwhite">{{ app }}</span>
     </div>
     <div id="elements">
       <slot></slot>
@@ -17,7 +17,7 @@
 export default {
   name: "Navbar",
   props: {
-    application: String
+    app: String
   }
 }
 </script>

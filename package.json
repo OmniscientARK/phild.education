@@ -6,14 +6,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "install": "npm install psl"
+    "install": "npm install vuex"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "psl": "^1.8.0",
     "vue": "^2.6.11",
     "vue-cookies": "^1.7.4",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "vue-session": "^1.0.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
