@@ -9,8 +9,7 @@ import NotFound from "@/pages/other/NotFound";
 
 Vue.config.productionTip = false
 
-Vue.use(VueCookies)
-Vue.use(axios)
+Vue.use(VueCookies, axios)
 
 const subdomains = {
   "www": www,
