@@ -11,6 +11,8 @@ Vue.config.productionTip = false
 
 Vue.use(VueCookies, axios)
 
+axios.defaults.baseURL = "https://phild-education.herokuapp.com/"
+
 const subdomains = {
   "www": www,
   "accounts": accounts,

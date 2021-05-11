@@ -28,9 +28,7 @@ export default {
   methods: {
     loginHandler(){
       console.log("loginHandler")
-      axios.get("http://189.4.173.228:81/?c=login", {
-
-      }).then((response) => {
+      axios.get("?c=login").then((response) => {
         console.log(response)
       })
     }
