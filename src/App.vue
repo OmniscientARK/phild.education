@@ -89,4 +89,29 @@ html,body {
   -ms-user-select: none;
   user-select: none;
 }
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+  background: transparent;
+  overflow: visible;
+}
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: #CCCCCC;
+  transition: background .1s;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  cursor: pointer;
+  background: #7C7C7C;
+}
 </style>
