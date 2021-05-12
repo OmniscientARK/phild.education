@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueCookies, axios)
 
-export const api = "https://phild-education.herokuapp.com/?c="
+export const api = "https://phild-education.herokuapp.com/"
 
 export const subdomains = {
   "www":       {router: www, title: "Education", name: "Home"},
@@ -76,3 +76,24 @@ new Vue({
   render: h => h(App),
   router: router(),
 }).$mount('#app')
+
+export async function post(c, d){
+  d["c"] = c
+  return axios({
+    method: "post",
+    url: api,
+    headers: {'Content-Type': 'application/json'},
+    data: d
+  });
+  // return await axios.post(api + c, data, {headers:{"Content-Type": "text/plain"}});
+}
+
+export async function get(c, d){
+  return axios({
+    method: "get",
+    url: api + "?c=" + c,
+    headers: {'Content-Type': 'application/json'},
+    data: d
+  });
+  // return await axios.post(api + c, data, {headers:{"Content-Type": "text/plain"}});
+}

@@ -12,7 +12,6 @@
 <script>
 import Navbar from "@/pages/other/nav/Navbar";
 import * as Main from "@/main.js"
-import axios from "axios";
 
 export default {
   name: "LoginArea",
@@ -27,7 +26,12 @@ export default {
   },
   methods: {
     loginHandler(){
-      axios.get(Main.api + "login").then((response) => {
+      console.log(this.username)
+      console.log(this.password)
+      Main.request("post", "login", {
+        username: this.username,
+        password: this.password
+      }).then((response) => {
         console.log(response)
       })
     }
