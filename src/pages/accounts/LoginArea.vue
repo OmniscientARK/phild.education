@@ -1,7 +1,6 @@
 <template>
   <div id="profile">
-    <Navbar app="Accounts">
-    </Navbar>
+    <Navbar/>
     <form @submit.prevent="loginHandler">
       <input type="text" id="login" v-model="username" placeholder="Usuário ou email" autocomplete="off">
       <input type="password" id="password" v-model="password" placeholder="Senha" autocomplete="off">
@@ -12,6 +11,7 @@
 
 <script>
 import Navbar from "@/pages/other/nav/Navbar";
+import * as Main from "@/main.js"
 import axios from "axios";
 
 export default {
@@ -27,8 +27,7 @@ export default {
   },
   methods: {
     loginHandler(){
-      console.log("loginHandler")
-      axios.get("?c=login").then((response) => {
+      axios.get(Main.api + "login").then((response) => {
         console.log(response)
       })
     }

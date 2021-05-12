@@ -11,19 +11,21 @@ Vue.config.productionTip = false
 
 Vue.use(VueCookies, axios)
 
-axios.defaults.baseURL = "https://phild-education.herokuapp.com/"
+export const api = "https://phild-education.herokuapp.com/?c="
 
-const subdomains = {
-  "www": www,
-  "accounts": accounts,
-  "news": news,
-  //"classroom": classroomRouter,
-  //"mail": mailRouter,
-  //"drive": driveRouter,
-  //Future subdomains: chemistry, canvas, coding
+export const subdomains = {
+  "www":       {router: www, title: "Education", name: "Home"},
+  "accounts":  {router: accounts, title: "Accounts", name: "Accounts"},
+  "news":      {router: news, title: "News", name: "News"},
+  // "classroom": {router: www, title: "Classroom", name: "Classroom"},
+  // "mail":      {router: www, title: "Mail", name: "Mail"},
+  // "drive":     {router: www, title: "Drive", name: "Drive"},
+  // "chemistry": {router: www, title: "Chemistry", name: "Chemistry"},
+  // "canvas":    {router: www, title: "Canvas", name: "Canvas"},
+  // "code":      {router: www, title: "Code", name: "Code"},
 }
 
-const router = () => {
+export function getCurrentPage(){
   let url = window.location.hostname
   if(window.location.hostname.includes("localhost")){
     url += ".education"
@@ -32,23 +34,42 @@ const router = () => {
   if(subdomain === ""){
     subdomain = "www"
   }
-  if(subdomain in subdomains){
-    let r = subdomains[subdomain]
-    r.addRoute({
-      path: '/*',
-      name: 'NotFound',
-      component: NotFound,
-      beforeEnter: (to, from, next) => {
-        if (Vue.$cookies.get("last") === "NotFound") {
-          Vue.$cookies.set("last", "Home")
-        }
-        next()
-      }
-    })
-    return r
-  }else{
-    window.location.href = window.location.href.replace(subdomain+".", "");
+  if(subdomain in subdomains) {
+    return subdomain
+  }else {
+    let url = window.location.href.split("//")
+    url[0] += "//"
+    window.location.replace(url[0] + url[1].split("/")[0].replace(subdomain+".", ""))
   }
+}
+
+export function redirect(subdomain, route){
+  let url = window.location.hostname
+  if(window.location.hostname.includes("localhost")){
+    url += ".education"
+  }
+  let sub = url.split('.').slice(0, -2).join('.');
+  if(sub === ""){
+    sub = "www"
+  }
+  url = window.location.href.split("//")
+  window.location.href = url[0] + "//" + url[1].split("/")[0].replace(sub + ".", subdomain + ".") + "/" + route
+}
+
+const router = () => {
+  let r = subdomains[getCurrentPage()].router
+  r.addRoute({
+    path: '/*',
+    name: 'NotFound',
+    component: NotFound,
+    beforeEnter: (to, from, next) => {
+      if (Vue.$cookies.get("last") === "NotFound") {
+        Vue.$cookies.set("last", "Home")
+      }
+      next()
+    }
+  })
+  return r
 }
 
 new Vue({

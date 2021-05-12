@@ -85,6 +85,7 @@ export default {
 
 #button:hover{
   background: #5C5C5C55;
+  cursor: pointer;
 }
 
 #dots{

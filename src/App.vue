@@ -21,12 +21,14 @@ export default {
     onScroll(){
       const el = document.getElementById("scroll-top")
       const navbar = document.getElementById("navbar")
-      if (document.body.scrollTop > navbar.offsetHeight || document.documentElement.scrollTop > navbar.offsetHeight) {
-        el.style.display = "flex";
-        el.style.visibility = "visible"
-      } else {
-        el.style.display = "none";
-        el.style.visibility = "hidden"
+      if(el != null && navbar != null) {
+        if (document.body.scrollTop > navbar.offsetHeight || document.documentElement.scrollTop > navbar.offsetHeight) {
+          el.style.display = "flex";
+          el.style.visibility = "visible"
+        } else {
+          el.style.display = "none";
+          el.style.visibility = "hidden"
+        }
       }
     }
   }

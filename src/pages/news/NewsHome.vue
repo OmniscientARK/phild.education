@@ -1,20 +1,16 @@
 <template>
   <div id="news">
     <GoTop/>
-    <Navbar app="News">
+    <Navbar>
       <SearchBar width="60%" height="40px" @search="search"/>
     </Navbar>
-    <Linkbar>
-
-    </Linkbar>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <Linkbar :links="links"/>
+    <div id="display">
+      <NewsCategory title="Fala JP" description="Veja as notícias mais quentes do momento!"/>
+      <NewsCategory title="Fala JP" description="Veja as notícias mais quentes do momento!"/>
+      <NewsCategory title="Fala JP" description="Veja as notícias mais quentes do momento!"/>
+      <NewsCategory title="Fala JP" description="Veja as notícias mais quentes do momento!"/>
+    </div>
   </div>
 </template>
 
@@ -23,9 +19,20 @@ import Navbar from "@/pages/other/nav/Navbar";
 import Linkbar from "@/pages/other/nav/Linkbar";
 import SearchBar from "@/pages/other/nav/elements/SearchBar";
 import GoTop from "@/pages/other/nav/elements/GoTop";
+import NewsCategory from "@/pages/news/components/NewsCategory";
 
 export default {
   name: "NewsHome",
+  data(){
+    return{
+      links: [
+        {name: "Última Hora", data: "recent", action: "scroll"},
+        {name: "Covid-19", data: "covid", action: "scroll"},
+        {name: "Ciência", data: "science", action: "scroll"},
+        {name: "Fala JP", data: "falajp", action: "scroll"}
+      ]
+    }
+  },
   methods: {
     search(query){
       if(query !== "" && query.length > 0){
@@ -34,8 +41,8 @@ export default {
     }
   },
   components: {
+    NewsCategory,
     GoTop,
-    // eslint-disable-next-line vue/no-unused-components
     SearchBar,
     Linkbar,
     Navbar
@@ -44,5 +51,8 @@ export default {
 </script>
 
 <style scoped>
-
+#display{
+  display: block;
+  padding: 20px;
+}
 </style>
