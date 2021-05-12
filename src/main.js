@@ -53,7 +53,8 @@ export function redirect(subdomain, route){
     sub = "www"
   }
   url = window.location.href.split("//")
-  window.location.href = url[0] + "//" + url[1].split("/")[0].replace(sub + ".", subdomain + ".") + "/" + route
+  console.log(url[0] + "//" + subdomain + "." + url[1].split("/")[0].replace(sub + ".", "") + "/" + route)
+  // window.location.href = url[0] + "//" + url[1].split("/")[0].replace(sub + ".", subdomain + ".") + "/" + route
 }
 
 const router = () => {
