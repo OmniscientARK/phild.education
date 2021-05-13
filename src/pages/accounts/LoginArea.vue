@@ -28,7 +28,7 @@ export default {
     loginHandler(){
       console.log(this.username)
       console.log(this.password)
-      Main.request("post", "login", {
+      Main.get("login", {
         username: this.username,
         password: this.password
       }).then((response) => {

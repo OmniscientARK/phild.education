@@ -77,23 +77,14 @@ new Vue({
   router: router(),
 }).$mount('#app')
 
-export async function post(c, d){
-  d["c"] = c
-  return axios({
-    method: "post",
-    url: api,
-    headers: {'Content-Type': 'application/json'},
-    data: d
-  });
-  // return await axios.post(api + c, data, {headers:{"Content-Type": "text/plain"}});
-}
-
 export async function get(c, d){
+  let params = ""
+  for(let key in d){
+    params += "&" + key + "=" + d[key]
+  }
   return axios({
     method: "get",
-    url: api + "?c=" + c,
-    headers: {'Content-Type': 'application/json'},
-    data: d
+    url: api + "?c=" + c + params,
+    headers: {"Content-Type": "application/json"}
   });
-  // return await axios.post(api + c, data, {headers:{"Content-Type": "text/plain"}});
 }
