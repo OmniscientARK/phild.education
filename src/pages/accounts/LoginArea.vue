@@ -26,8 +26,6 @@ export default {
   },
   methods: {
     loginHandler(){
-      console.log(this.username)
-      console.log(this.password)
       Main.get("login", {
         username: this.username,
         password: this.password
